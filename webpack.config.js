@@ -7,8 +7,6 @@ var fs = require('fs');
 var path = require('path');
 var glob = require('glob');
 
-//const debug = process.env.NODE_ENV === 'dev';
-
 function entries(globPath) {
     var files = glob.sync(globPath);
     var entries = {}, entry, dirname, basename;

@@ -17,6 +17,8 @@ var gutil = require("gulp-util");
 var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
 
+const debug = process.env.NODE_ENV === 'dev';
+
 gulp.task('less', function(){
     var processors = [
         autoprefixer({browsers: ['last 2 version', 'ie 6-11']}),
@@ -92,5 +94,6 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['clean'], function(cb) {
-    runSequence(['css', 'image', 'webpack-dev-server'], 'watch', cb);
+    var wp = debug ? 'webpack-dev-server' : 'webpack';
+    runSequence(['css', 'image', wp], 'watch', cb);
 });
