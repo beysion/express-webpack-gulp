@@ -1,0 +1,8 @@
+node_modules/
+bower_components/
+logs/
+static/dist/
+static/css/dist/
+npm-debug*
+npm-debug.log
+.idea
